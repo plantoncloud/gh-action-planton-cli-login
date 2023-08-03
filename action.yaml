@@ -1,0 +1,19 @@
+name: 'Planton Cloud CLI Auth Login'
+description: 'Login to Planton Cloud using Client Credentials'
+inputs:
+  planton_cloud_client_id:
+    description: 'client-id of the planton cloud machine-account to be used for generated api token for making api requests to planton cloud service.'
+    required: true
+  planton_cloud_client_secret:
+    description: 'client-secret of the planton cloud machine-account to be used for generated api token for making api requests to planton cloud service.'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Verify Planton CLI Version
+      run: planton version
+      shell: bash
+    - name: Login
+      run: planton auth machine login --client-id ${{ inputs.planton_cloud_client_id }} --client-secret ${{ inputs.planton_cloud_client_secret }}
+      shell: bash
