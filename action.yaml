@@ -15,5 +15,5 @@ runs:
       run: planton version
       shell: bash
     - name: Login
-      run: planton auth machine login --client-email ${{ inputs.planton_cloud_client_email }} --client-secret ${{ inputs.planton_cloud_client_secret }}
+      run: planton auth machine login --client-email ${{ inputs.planton_cloud_client_email }} --client-secret ${{ inputs.planton_cloud_client_secret }} --debug
       shell: bash
